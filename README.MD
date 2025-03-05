@@ -8,7 +8,7 @@
 # 目录结构
 ```bash
 my_project/
-├── app.py                # FastAPI 主程序
+├── main.py                # FastAPI 主程序
 ├── untils/
 │   └── logger.py         # 日志工具
 ├── tempDir/              # 用于存储临时上传文件的目录
