@@ -27,7 +27,7 @@ python main.py
 
 ### 上传视频即刻获取检测结果：
 ```bash
-curl -X POST -F "file=@suspicious_video.mp4" http://localhost:8000/node1/predict_node/
+curl -X POST -F "file=@suspicious_video.mp4" http://localhost:10086/node1/predict_node/
 ```
 ### 成功响应示例
 ```bash
