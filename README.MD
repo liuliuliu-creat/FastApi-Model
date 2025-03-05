@@ -68,5 +68,5 @@ uvicorn.run(app,
 **持久化存储到 'my_project_logs/'**
 
 
-# Happy Hacking! 😎👨💻
+# Happy Codeing! 😎👨💻
 # 用AI守护世界和平！🛡️🔍
