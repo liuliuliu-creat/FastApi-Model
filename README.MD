@@ -14,6 +14,12 @@ pip install fastapi uvicorn tqdm python-multipart
 ```
 **torch默认正常安装**
 
+# 推理部分更新 🔍
+## 推理的部分，你可以根据实际需求进行修改：
+```bash
+results = inferVedio(para1, para2, ....)
+```
+
 ## 启动服务
 ```bash
 python main.py
@@ -24,6 +30,7 @@ python main.py
 # 接口使用指南 📮
 ## 核心检测接口
 ### Endpoint: POST /node1/predict_node/
+
 
 ### 上传视频即刻获取检测结果：
 ```bash
@@ -48,20 +55,6 @@ curl -X POST -F "file=@suspicious_video.mp4" http://localhost:10086/node1/predic
 
 ## 异常捕获+详细错误日志
 
-## 临时文件自动清理建议
-
-# 性能怪兽模式 🚀
-
-```bash
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-```
-
-## 自动启用GPU加速，推理速度最高提升20倍！
-
-# 开发者锦囊 💡
-## 🔧 配置中心
-**修改这些参数定制你的服务**：
-
 ```bash
 uvicorn.run(app, 
            host="0.0.0.0",  # 监听所有IP
@@ -74,11 +67,6 @@ uvicorn.run(app,
 
 **持久化存储到 'my_project_logs/'**
 
-## 🧪 测试秘籍
-### 推荐在 tests/ 目录添加：
-**压力测试脚本**
-**不同格式视频测试用例**
-**异常流测试（损坏文件/超大文件）**
 
 # Happy Hacking! 😎👨💻
 # 用AI守护世界和平！🛡️🔍
