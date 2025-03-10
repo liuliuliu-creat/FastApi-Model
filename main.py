@@ -27,20 +27,32 @@ your_router = APIRouter(prefix="/node1")
 async def predict_node(file: UploadFile = File(...)):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     try:
-        # 保存上传的图片
+        # 保存上传的视频
         video_id = str(uuid.uuid4())
         video_path = f"tempDir/{video_id}.mp4"
-        os.makedirs(os.path.dirname(video_path), exist_ok=True)  # 确保目录存在
+        os.makedirs(os.path.dirname(video_path), exist_ok=True)
         with open(video_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
         # 进行推理
-        results = inferVedio(para1,para2,....)
+        results = inferVedio(para1, para2, ...)  # 替换为实际参数
 
-        return results
+        # 成功响应
+        return {
+            "status": "success",
+            "results": results
+        }
+        
     except Exception as e:
-        logger.error(HTTPException(status_code=500, detail=str(e)))
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"处理视频时发生错误: {str(e)}", exc_info=True)
+        # 错误响应
+        return JSONResponse(
+            status_code=500,
+            content={
+                "status": "error",
+                "detail": str(e)
+            }
+        )
 
 # >>>>>>>>>>>>>>>> 路由挂载到主应用<<<<<<<<<<<<<<< # Optional
 app.include_router(your_router)
